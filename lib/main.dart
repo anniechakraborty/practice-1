@@ -42,22 +42,40 @@ class _HomeState extends State<Home> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Expanded(
-            child: Text(_data[_index]),
+            child: Center(
+              child: Text(
+                _data[_index],
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24.0,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+            ),
             flex: 5,
           ),
           Expanded(
             flex: 2,
-            child: FlatButton(
-              onPressed: () {
-                setState(() {
-                  if (_index < _data.length) {
-                    _index++;
-                  } else {
-                    _index = 0;
-                  }
-                });
-              },
-              child: Text('Change Text'),
+            child: Center(
+              child: FlatButton(
+                onPressed: () {
+                  setState(() {
+                    if (_index < _data.length - 1) {
+                      _index++;
+                      print(_index);
+                    } else {
+                      _index = 0;
+                      print(_index);
+                    }
+                  });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Change Text'),
+                ),
+                color: Colors.teal,
+              ),
             ),
           )
         ],
